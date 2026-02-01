@@ -19,25 +19,21 @@
 ## Logical Flow Chart
 ```mermaid
 graph TD
-    %% Phase 1: Exploration
-    A[Start Postgres via Docker] --> B[Jupyter: Explore CSV & Prototype Code]
-    B --> C[Jupyter: Generate SQL Schema & Test Ingestion]
+    A[1. Start Postgres Container] --> B[2. Jupyter: Draft & Test Code]
+    B -->|Copy Working Code| C[3. Create pipeline.py]
+    C --> D[4. Create Dockerfile]
+    D -->|Build Image| E[5. Run Ingestion Container]
+    E -->|Success| F[Data Landed in Postgres]
     
-    %% Phase 2: Refinement
-    C --> D[Convert Jupyter Code to ingest_data.py Script]
-    D --> E[Test Script Locally / Manual Pip Install]
-    
-    %% Phase 3: Containerization
-    E --> F[Build Dockerfile: Bake Pip & Script into Image]
-    F --> G[Run Ingestion Container on Docker Network]
-    
-    %% Phase 4: Verification & Orchestration
-    G --> H[pgcli: Verify Final Data in Postgres]
-    H --> I[Docker Compose: Automate DB + Ingester]
+    subgraph "The Development Loop"
+    B
+    C
+    end
 
-    style B fill:#fff4dd,stroke:#d4a017
-    style F fill:#d1ecf1,stroke:#0c5460
-    style I fill:#d4edda,stroke:#28a745
+    subgraph "The Production Image"
+    D
+    E
+    end
 ```
 
 ## Summary
