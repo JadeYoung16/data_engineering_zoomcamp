@@ -19,28 +19,12 @@
 ## Logical Flow Chart
 ```mermaid
 graph TD
-    %% Step 1: Foundation
-    A[Foundational Docker Knowledge] --> B[Setup Postgres Database Container]
-    
-    %% Step 2: Infrastructure
-    B --> C[Setup pgAdmin for DB Management]
-    
-    %% Step 3: Application Development
-    C --> D[Develop Python Ingestion Script]
-    
-    %% Step 4: Packaging
-    D --> E[Create Dockerfile to Package Script]
-    E --> F[Build Custom Ingestion Image]
-    
-    %% Step 5: Orchestration
-    B & C & F --> G[Docker Compose Orchestration]
-    
-    %% Final Result
-    G --> H[Final Goal: Portable & Automated Data Pipeline]
-
-    %% Styling for clarity
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style H fill:#dfd,stroke:#333,stroke-width:2px
+    A[Start Postgres Container] --> B[Build Base Python Docker Image]
+    B --> C[Run Container & Connect to DB Network]
+    C --> D[Run Ingestion Script inside Container]
+    D --> E[Check Data with pgcli]
+    E --> F[Refine Dockerfile with ENTRYPOINT]
+    F --> G[Orchestrate with Docker Compose]
 ```
 
 ## Summary
