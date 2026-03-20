@@ -1,0 +1,77 @@
+import os 
+from pyflink.datastream import StreamExecutionEnvironment
+from pyflink.table import EnvironmentSettings, StreamTableEnvironment
+
+def create_events_source_kafka(t_env):
+    table_name = "events"
+    source_ddl = f"""
+        CREATE TABLE {table_name} (
+            PULocationID INTEGER,
+            lpep_pickup_datetime BIGINT,
+            tip_amount DOUBLE,
+            event_timestamp AS TO_TIMESTAMP_LTZ(lpep_pickup_datetime, 3),
+            WATERMARK FOR event_timestamp AS event_timestamp - INTERVAL '5' SECOND
+        ) WITH (
+            'connector' = 'kafka',
+            'properties.bootstrap.servers' = 'redpanda:29092',
+            'topic' = 'green-trips',
+            'scan.startup.mode' = 'earliest-offset',
+            'format' = 'json',
+            'json.ignore-parse-errors' = 'true'
+        )
+    """
+    t_env.execute_sql(source_ddl)
+    return table_name
+
+def create_tips_sink_postgres(t_env):
+    sink_ddl = """
+        CREATE TABLE sink_max_tips (
+            window_start TIMESTAMP(3),
+            window_end TIMESTAMP(3),
+            max_tip DOUBLE, -- Changed to DOUBLE for decimals
+            PRIMARY KEY (window_start, window_end) NOT ENFORCED
+        ) WITH (
+            'connector' = 'jdbc',
+            'url' = 'jdbc:postgresql://postgres:5432/postgres',
+            'table-name' = 'green_trips_tips', -- New table name
+            'username' = 'postgres',
+            'password' = 'postgres',
+            'driver' = 'org.postgresql.Driver'
+        )
+    """
+    t_env.execute_sql(sink_ddl)
+    return 'sink_max_tips'
+
+def window_job():
+    env = StreamExecutionEnvironment.get_execution_environment()
+    env.set_parallelism(1)
+
+    settings = EnvironmentSettings.new_instance().in_streaming_mode().build()
+    t_env = StreamTableEnvironment.create(env, environment_settings=settings)
+
+    # 1. Define Source and Sink
+    source_table = create_events_source_kafka(t_env)
+    sink_table = create_tips_sink_postgres(t_env)
+
+    # 2. Execute Session Window Query
+    try:
+        t_env.execute_sql(f"""
+            INSERT INTO {sink_table}
+            SELECT
+                window_start,
+                window_end,
+                MAX(tip_amount) AS max_tip
+            FROM TABLE(
+                TUMBLE(
+                    TABLE {source_table},
+                    DESCRIPTOR(event_timestamp), 
+                    INTERVAL '1' HOUR
+                )
+            )
+            GROUP BY window_start, window_end
+        """).wait()
+    except Exception as e:
+        print(f"Flink Job Failed: {str(e)}")
+
+if __name__ == '__main__':
+    window_job()
