@@ -1,1 +1,1 @@
-Homework for module 7
+Module 7 Streaming (via Redpanda and Flink)
