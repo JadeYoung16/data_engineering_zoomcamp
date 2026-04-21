@@ -163,12 +163,21 @@ The 4 load tasks run in parallel, truncating and reloading each raw table from S
 
 ## Dashboard
 
-The Tableau performance dashboard connects directly to Snowflake and includes:
+The Tableau performance dashboard connects directly to Snowflake:
 
-- **Performance Tier Breakdown** — distribution of High / Medium / Low performers
-- **Average Rating by Department** — department-level performance comparison
-- **Performance Tier by Job Title** — stacked bar showing performance mix per role
-- **Tenure vs Rating** — scatter plot correlating tenure with employee rating
+## Dashboard Preview
+
+### Performance Tier Breakdown
+![Performance Tier Breakdown](dashboard/Performance_Tier_Bkdown.png)
+
+### Average Rating by Department
+![Avg Rating by Department](dashboard/Avg_Rating_by%20Depart.png)
+
+### Performance Tier by Job Title
+![Performance Tier by Job Title](dashboard/Performance_Tier_by_JobTitle.png)
+
+### Tenure vs Rating
+![Tenure vs Rating](dashboard/Tenure_vs_Rating_Scatter.png)
 
 ---
 
