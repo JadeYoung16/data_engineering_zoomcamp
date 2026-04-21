@@ -1,0 +1,142 @@
+[2026-04-21T00:00:11.054+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-04-21T00:00:11.059+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: employee_data_pipeline_v2.run_dbt_transformations scheduled__2026-04-20T00:00:00+00:00 [queued]>
+[2026-04-21T00:00:11.062+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: employee_data_pipeline_v2.run_dbt_transformations scheduled__2026-04-20T00:00:00+00:00 [queued]>
+[2026-04-21T00:00:11.062+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2026-04-21T00:00:11.065+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): run_dbt_transformations> on 2026-04-20 00:00:00+00:00
+[2026-04-21T00:00:11.068+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=6144) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-04-21T00:00:11.068+0000] {standard_task_runner.py:72} INFO - Started process 6145 to run task
+[2026-04-21T00:00:11.068+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'employee_data_pipeline_v2', 'run_dbt_transformations', 'scheduled__2026-04-20T00:00:00+00:00', '--job-id', '95', '--raw', '--subdir', 'DAGS_FOLDER/employee_pipeline_dag.py', '--cfg-path', '/tmp/tmppvt764sq']
+[2026-04-21T00:00:11.069+0000] {standard_task_runner.py:105} INFO - Job 95: Subtask run_dbt_transformations
+[2026-04-21T00:00:11.074+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-04-21T00:00:11.086+0000] {task_command.py:467} INFO - Running <TaskInstance: employee_data_pipeline_v2.run_dbt_transformations scheduled__2026-04-20T00:00:00+00:00 [running]> on host 78fd1d8cced9
+[2026-04-21T00:00:11.086+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:470 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-04-21T00:00:11.108+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='employee_data_pipeline_v2' AIRFLOW_CTX_TASK_ID='run_dbt_transformations' AIRFLOW_CTX_EXECUTION_DATE='2026-04-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-04-20T00:00:00+00:00'
+[2026-04-21T00:00:11.108+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-04-21T00:00:11.113+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-04-21T00:00:11.113+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/employee_data_transformation && /home/***/.local/bin/dbt build --profiles-dir /home/***/.dbt']
+[2026-04-21T00:00:11.116+0000] {subprocess.py:86} INFO - Output:
+[2026-04-21T00:00:11.916+0000] {subprocess.py:93} INFO - [0m00:00:11  Running with dbt=1.11.8
+[2026-04-21T00:00:12.240+0000] {subprocess.py:93} INFO - [0m00:00:12  Registered adapter: snowflake=1.11.4
+[2026-04-21T00:00:12.347+0000] {subprocess.py:93} INFO - [0m00:00:12  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-04-21T00:00:12.347+0000] {subprocess.py:93} INFO - There are 1 unused configuration paths:
+[2026-04-21T00:00:12.347+0000] {subprocess.py:93} INFO - - models.employee_data_transformation.example
+[2026-04-21T00:00:12.449+0000] {subprocess.py:93} INFO - [0m00:00:12  Found 13 models, 39 data tests, 4 sources, 639 macros
+[2026-04-21T00:00:12.451+0000] {subprocess.py:93} INFO - [0m00:00:12
+[2026-04-21T00:00:12.451+0000] {subprocess.py:93} INFO - [0m00:00:12  Concurrency: 4 threads (target='dev')
+[2026-04-21T00:00:12.452+0000] {subprocess.py:93} INFO - [0m00:00:12
+[2026-04-21T00:00:13.591+0000] {subprocess.py:93} INFO - [0m00:00:13  1 of 52 START sql table model STAGING.dim_date ................................. [RUN]
+[2026-04-21T00:00:13.592+0000] {subprocess.py:93} INFO - [0m00:00:13  2 of 52 START sql view model STAGING.stg_employee .............................. [RUN]
+[2026-04-21T00:00:13.592+0000] {subprocess.py:93} INFO - [0m00:00:13  3 of 52 START sql view model STAGING.stg_engagement ............................ [RUN]
+[2026-04-21T00:00:13.592+0000] {subprocess.py:93} INFO - [0m00:00:13  4 of 52 START sql view model STAGING.stg_recruitment ........................... [RUN]
+[2026-04-21T00:00:14.485+0000] {subprocess.py:93} INFO - [0m00:00:14  3 of 52 OK created sql view model STAGING.stg_engagement ....................... [[32mSUCCESS 1[0m in 0.89s]
+[2026-04-21T00:00:14.486+0000] {subprocess.py:93} INFO - [0m00:00:14  5 of 52 START sql view model STAGING.stg_training .............................. [RUN]
+[2026-04-21T00:00:14.703+0000] {subprocess.py:93} INFO - [0m00:00:14  2 of 52 OK created sql view model STAGING.stg_employee ......................... [[32mSUCCESS 1[0m in 1.11s]
+[2026-04-21T00:00:14.705+0000] {subprocess.py:93} INFO - [0m00:00:14  6 of 52 START test not_null_stg_engagement_employee_id ......................... [RUN]
+[2026-04-21T00:00:14.805+0000] {subprocess.py:93} INFO - [0m00:00:14  4 of 52 OK created sql view model STAGING.stg_recruitment ...................... [[32mSUCCESS 1[0m in 1.21s]
+[2026-04-21T00:00:14.807+0000] {subprocess.py:93} INFO - [0m00:00:14  7 of 52 START test not_null_stg_engagement_engagement_score .................... [RUN]
+[2026-04-21T00:00:14.955+0000] {subprocess.py:93} INFO - [0m00:00:14  5 of 52 OK created sql view model STAGING.stg_training ......................... [[32mSUCCESS 1[0m in 0.47s]
+[2026-04-21T00:00:14.957+0000] {subprocess.py:93} INFO - [0m00:00:14  8 of 52 START test not_null_stg_engagement_survey_date ......................... [RUN]
+[2026-04-21T00:00:15.423+0000] {subprocess.py:93} INFO - [0m00:00:15  6 of 52 PASS not_null_stg_engagement_employee_id ............................... [[32mPASS[0m in 0.72s]
+[2026-04-21T00:00:15.424+0000] {subprocess.py:93} INFO - [0m00:00:15  1 of 52 OK created sql table model STAGING.dim_date ............................ [[32mSUCCESS 11322[0m in 1.83s]
+[2026-04-21T00:00:15.425+0000] {subprocess.py:93} INFO - [0m00:00:15  9 of 52 START test not_null_stg_employee_employee_id ........................... [RUN]
+[2026-04-21T00:00:15.425+0000] {subprocess.py:93} INFO - [0m00:00:15  10 of 52 START test not_null_stg_employee_start_date ........................... [RUN]
+[2026-04-21T00:00:15.744+0000] {subprocess.py:93} INFO - [0m00:00:15  10 of 52 PASS not_null_stg_employee_start_date ................................. [[32mPASS[0m in 0.32s]
+[2026-04-21T00:00:15.747+0000] {subprocess.py:93} INFO - [0m00:00:15  9 of 52 PASS not_null_stg_employee_employee_id ................................. [[32mPASS[0m in 0.32s]
+[2026-04-21T00:00:15.748+0000] {subprocess.py:93} INFO - [0m00:00:15  11 of 52 START test unique_stg_employee_employee_id ............................ [RUN]
+[2026-04-21T00:00:15.748+0000] {subprocess.py:93} INFO - [0m00:00:15  12 of 52 START test not_null_stg_recruitment_applicant_id ...................... [RUN]
+[2026-04-21T00:00:16.239+0000] {subprocess.py:93} INFO - [0m00:00:16  8 of 52 PASS not_null_stg_engagement_survey_date ............................... [[32mPASS[0m in 1.28s]
+[2026-04-21T00:00:16.241+0000] {subprocess.py:93} INFO - [0m00:00:16  7 of 52 PASS not_null_stg_engagement_engagement_score .......................... [[32mPASS[0m in 1.43s]
+[2026-04-21T00:00:16.243+0000] {subprocess.py:93} INFO - [0m00:00:16  13 of 52 START test not_null_stg_recruitment_application_date .................. [RUN]
+[2026-04-21T00:00:16.243+0000] {subprocess.py:93} INFO - [0m00:00:16  14 of 52 START test unique_stg_recruitment_applicant_id ........................ [RUN]
+[2026-04-21T00:00:16.244+0000] {subprocess.py:93} INFO - [0m00:00:16  12 of 52 PASS not_null_stg_recruitment_applicant_id ............................ [[32mPASS[0m in 0.50s]
+[2026-04-21T00:00:16.249+0000] {subprocess.py:93} INFO - [0m00:00:16  15 of 52 START test not_null_stg_training_employee_id .......................... [RUN]
+[2026-04-21T00:00:16.590+0000] {subprocess.py:93} INFO - [0m00:00:16  11 of 52 PASS unique_stg_employee_employee_id .................................. [[32mPASS[0m in 0.84s]
+[2026-04-21T00:00:16.592+0000] {subprocess.py:93} INFO - [0m00:00:16  16 of 52 START test not_null_stg_training_training_date ........................ [RUN]
+[2026-04-21T00:00:16.956+0000] {subprocess.py:93} INFO - [0m00:00:16  14 of 52 PASS unique_stg_recruitment_applicant_id .............................. [[32mPASS[0m in 0.71s]
+[2026-04-21T00:00:16.959+0000] {subprocess.py:93} INFO - [0m00:00:16  13 of 52 PASS not_null_stg_recruitment_application_date ........................ [[32mPASS[0m in 0.71s]
+[2026-04-21T00:00:16.960+0000] {subprocess.py:93} INFO - [0m00:00:16  15 of 52 PASS not_null_stg_training_employee_id ................................ [[32mPASS[0m in 0.71s]
+[2026-04-21T00:00:16.962+0000] {subprocess.py:93} INFO - [0m00:00:16  17 of 52 START test not_null_dim_date_date_key ................................. [RUN]
+[2026-04-21T00:00:16.962+0000] {subprocess.py:93} INFO - [0m00:00:16  18 of 52 START test unique_dim_date_date_key ................................... [RUN]
+[2026-04-21T00:00:16.963+0000] {subprocess.py:93} INFO - [0m00:00:16  19 of 52 START sql view model STAGING.fct_engagement ........................... [RUN]
+[2026-04-21T00:00:17.096+0000] {subprocess.py:93} INFO - [0m00:00:17  16 of 52 PASS not_null_stg_training_training_date .............................. [[32mPASS[0m in 0.50s]
+[2026-04-21T00:00:17.098+0000] {subprocess.py:93} INFO - [0m00:00:17  20 of 52 START sql view model STAGING.dim_department ........................... [RUN]
+[2026-04-21T00:00:17.148+0000] {subprocess.py:93} INFO - [0m00:00:17  17 of 52 PASS not_null_dim_date_date_key ....................................... [[32mPASS[0m in 0.19s]
+[2026-04-21T00:00:17.149+0000] {subprocess.py:93} INFO - [0m00:00:17  21 of 52 START sql view model STAGING.dim_employee ............................. [RUN]
+[2026-04-21T00:00:17.175+0000] {subprocess.py:93} INFO - [0m00:00:17  18 of 52 PASS unique_dim_date_date_key ......................................... [[32mPASS[0m in 0.21s]
+[2026-04-21T00:00:17.176+0000] {subprocess.py:93} INFO - [0m00:00:17  22 of 52 START sql view model STAGING.dim_job .................................. [RUN]
+[2026-04-21T00:00:17.571+0000] {subprocess.py:93} INFO - [0m00:00:17  22 of 52 OK created sql view model STAGING.dim_job ............................. [[32mSUCCESS 1[0m in 0.39s]
+[2026-04-21T00:00:17.573+0000] {subprocess.py:93} INFO - [0m00:00:17  23 of 52 START sql view model STAGING.fct_recruitment .......................... [RUN]
+[2026-04-21T00:00:17.981+0000] {subprocess.py:93} INFO - [0m00:00:17  19 of 52 OK created sql view model STAGING.fct_engagement ...................... [[32mSUCCESS 1[0m in 1.01s]
+[2026-04-21T00:00:17.982+0000] {subprocess.py:93} INFO - [0m00:00:17  20 of 52 OK created sql view model STAGING.dim_department ...................... [[32mSUCCESS 1[0m in 0.88s]
+[2026-04-21T00:00:17.983+0000] {subprocess.py:93} INFO - [0m00:00:17  24 of 52 START sql view model STAGING.dim_training_program ..................... [RUN]
+[2026-04-21T00:00:17.983+0000] {subprocess.py:93} INFO - [0m00:00:17  25 of 52 START test not_null_dim_job_job_key ................................... [RUN]
+[2026-04-21T00:00:18.075+0000] {subprocess.py:93} INFO - [0m00:00:18  23 of 52 OK created sql view model STAGING.fct_recruitment ..................... [[32mSUCCESS 1[0m in 0.50s]
+[2026-04-21T00:00:18.078+0000] {subprocess.py:93} INFO - [0m00:00:18  21 of 52 OK created sql view model STAGING.dim_employee ........................ [[32mSUCCESS 1[0m in 0.93s]
+[2026-04-21T00:00:18.079+0000] {subprocess.py:93} INFO - [0m00:00:18  26 of 52 START test not_null_dim_job_job_title ................................. [RUN]
+[2026-04-21T00:00:18.080+0000] {subprocess.py:93} INFO - [0m00:00:18  27 of 52 START test unique_dim_job_job_key ..................................... [RUN]
+[2026-04-21T00:00:18.299+0000] {subprocess.py:93} INFO - [0m00:00:18  26 of 52 PASS not_null_dim_job_job_title ....................................... [[32mPASS[0m in 0.22s]
+[2026-04-21T00:00:18.300+0000] {subprocess.py:93} INFO - [0m00:00:18  28 of 52 START test not_null_fct_engagement_employee_id ........................ [RUN]
+[2026-04-21T00:00:18.310+0000] {subprocess.py:93} INFO - [0m00:00:18  27 of 52 PASS unique_dim_job_job_key ........................................... [[32mPASS[0m in 0.23s]
+[2026-04-21T00:00:18.310+0000] {subprocess.py:93} INFO - [0m00:00:18  29 of 52 START test not_null_fct_engagement_engagement_key ..................... [RUN]
+[2026-04-21T00:00:18.696+0000] {subprocess.py:93} INFO - [0m00:00:18  25 of 52 PASS not_null_dim_job_job_key ......................................... [[32mPASS[0m in 0.71s]
+[2026-04-21T00:00:18.699+0000] {subprocess.py:93} INFO - [0m00:00:18  28 of 52 PASS not_null_fct_engagement_employee_id .............................. [[32mPASS[0m in 0.40s]
+[2026-04-21T00:00:18.700+0000] {subprocess.py:93} INFO - [0m00:00:18  30 of 52 START test unique_fct_engagement_engagement_key ....................... [RUN]
+[2026-04-21T00:00:18.701+0000] {subprocess.py:93} INFO - [0m00:00:18  31 of 52 START test not_null_dim_department_department_key ..................... [RUN]
+[2026-04-21T00:00:19.106+0000] {subprocess.py:93} INFO - [0m00:00:19  24 of 52 OK created sql view model STAGING.dim_training_program ................ [[32mSUCCESS 1[0m in 1.12s]
+[2026-04-21T00:00:19.108+0000] {subprocess.py:93} INFO - [0m00:00:19  32 of 52 START test not_null_dim_department_department_name .................... [RUN]
+[2026-04-21T00:00:19.149+0000] {subprocess.py:93} INFO - [0m00:00:19  30 of 52 PASS unique_fct_engagement_engagement_key ............................. [[32mPASS[0m in 0.45s]
+[2026-04-21T00:00:19.150+0000] {subprocess.py:93} INFO - [0m00:00:19  33 of 52 START test unique_dim_department_department_key ....................... [RUN]
+[2026-04-21T00:00:19.413+0000] {subprocess.py:93} INFO - [0m00:00:19  29 of 52 PASS not_null_fct_engagement_engagement_key ........................... [[32mPASS[0m in 1.10s]
+[2026-04-21T00:00:19.415+0000] {subprocess.py:93} INFO - [0m00:00:19  34 of 52 START test not_null_fct_recruitment_applicant_id ...................... [RUN]
+[2026-04-21T00:00:19.432+0000] {subprocess.py:93} INFO - [0m00:00:19  32 of 52 PASS not_null_dim_department_department_name .......................... [[32mPASS[0m in 0.32s]
+[2026-04-21T00:00:19.433+0000] {subprocess.py:93} INFO - [0m00:00:19  35 of 52 START test not_null_fct_recruitment_recruitment_key ................... [RUN]
+[2026-04-21T00:00:19.538+0000] {subprocess.py:93} INFO - [0m00:00:19  31 of 52 PASS not_null_dim_department_department_key ........................... [[32mPASS[0m in 0.84s]
+[2026-04-21T00:00:19.539+0000] {subprocess.py:93} INFO - [0m00:00:19  36 of 52 START test unique_fct_recruitment_recruitment_key ..................... [RUN]
+[2026-04-21T00:00:19.550+0000] {subprocess.py:93} INFO - [0m00:00:19  33 of 52 PASS unique_dim_department_department_key ............................. [[32mPASS[0m in 0.40s]
+[2026-04-21T00:00:19.551+0000] {subprocess.py:93} INFO - [0m00:00:19  37 of 52 START test not_null_dim_employee_employee_id .......................... [RUN]
+[2026-04-21T00:00:19.712+0000] {subprocess.py:93} INFO - [0m00:00:19  34 of 52 PASS not_null_fct_recruitment_applicant_id ............................ [[32mPASS[0m in 0.30s]
+[2026-04-21T00:00:19.713+0000] {subprocess.py:93} INFO - [0m00:00:19  38 of 52 START test not_null_dim_employee_is_active ............................ [RUN]
+[2026-04-21T00:00:19.763+0000] {subprocess.py:93} INFO - [0m00:00:19  36 of 52 PASS unique_fct_recruitment_recruitment_key ........................... [[32mPASS[0m in 0.22s]
+[2026-04-21T00:00:19.764+0000] {subprocess.py:93} INFO - [0m00:00:19  39 of 52 START test unique_dim_employee_employee_id ............................ [RUN]
+[2026-04-21T00:00:20.437+0000] {subprocess.py:93} INFO - [0m00:00:20  38 of 52 PASS not_null_dim_employee_is_active .................................. [[32mPASS[0m in 0.72s]
+[2026-04-21T00:00:20.440+0000] {subprocess.py:93} INFO - [0m00:00:20  39 of 52 PASS unique_dim_employee_employee_id .................................. [[32mPASS[0m in 0.68s]
+[2026-04-21T00:00:20.441+0000] {subprocess.py:93} INFO - [0m00:00:20  37 of 52 PASS not_null_dim_employee_employee_id ................................ [[32mPASS[0m in 0.89s]
+[2026-04-21T00:00:20.442+0000] {subprocess.py:93} INFO - [0m00:00:20  35 of 52 PASS not_null_fct_recruitment_recruitment_key ......................... [[32mPASS[0m in 1.01s]
+[2026-04-21T00:00:20.443+0000] {subprocess.py:93} INFO - [0m00:00:20  40 of 52 START test not_null_dim_training_program_training_program_key ......... [RUN]
+[2026-04-21T00:00:20.444+0000] {subprocess.py:93} INFO - [0m00:00:20  41 of 52 START test not_null_dim_training_program_training_program_name ........ [RUN]
+[2026-04-21T00:00:20.445+0000] {subprocess.py:93} INFO - [0m00:00:20  42 of 52 START test unique_dim_training_program_training_program_key ........... [RUN]
+[2026-04-21T00:00:20.445+0000] {subprocess.py:93} INFO - [0m00:00:20  43 of 52 START sql view model STAGING.fct_employee_snapshot .................... [RUN]
+[2026-04-21T00:00:20.671+0000] {subprocess.py:93} INFO - [0m00:00:20  42 of 52 PASS unique_dim_training_program_training_program_key ................. [[32mPASS[0m in 0.23s]
+[2026-04-21T00:00:20.947+0000] {subprocess.py:93} INFO - [0m00:00:20  40 of 52 PASS not_null_dim_training_program_training_program_key ............... [[32mPASS[0m in 0.50s]
+[2026-04-21T00:00:20.952+0000] {subprocess.py:93} INFO - [0m00:00:20  41 of 52 PASS not_null_dim_training_program_training_program_name .............. [[32mPASS[0m in 0.51s]
+[2026-04-21T00:00:20.953+0000] {subprocess.py:93} INFO - [0m00:00:20  44 of 52 START sql view model STAGING.fct_training ............................. [RUN]
+[2026-04-21T00:00:21.456+0000] {subprocess.py:93} INFO - [0m00:00:21  44 of 52 OK created sql view model STAGING.fct_training ........................ [[32mSUCCESS 1[0m in 0.50s]
+[2026-04-21T00:00:21.457+0000] {subprocess.py:93} INFO - [0m00:00:21  45 of 52 START test not_null_fct_training_employee_id .......................... [RUN]
+[2026-04-21T00:00:21.457+0000] {subprocess.py:93} INFO - [0m00:00:21  46 of 52 START test not_null_fct_training_training_key ......................... [RUN]
+[2026-04-21T00:00:21.458+0000] {subprocess.py:93} INFO - [0m00:00:21  47 of 52 START test unique_fct_training_training_key ........................... [RUN]
+[2026-04-21T00:00:21.870+0000] {subprocess.py:93} INFO - [0m00:00:21  43 of 52 OK created sql view model STAGING.fct_employee_snapshot ............... [[32mSUCCESS 1[0m in 1.42s]
+[2026-04-21T00:00:21.872+0000] {subprocess.py:93} INFO - [0m00:00:21  48 of 52 START test accepted_values_fct_employee_snapshot_performance_tier__High__Medium__Low__Unknown  [RUN]
+[2026-04-21T00:00:22.688+0000] {subprocess.py:93} INFO - [0m00:00:22  45 of 52 PASS not_null_fct_training_employee_id ................................ [[32mPASS[0m in 1.23s]
+[2026-04-21T00:00:22.691+0000] {subprocess.py:93} INFO - [0m00:00:22  48 of 52 PASS accepted_values_fct_employee_snapshot_performance_tier__High__Medium__Low__Unknown  [[32mPASS[0m in 0.82s]
+[2026-04-21T00:00:22.693+0000] {subprocess.py:93} INFO - [0m00:00:22  49 of 52 START test not_null_fct_employee_snapshot_employee_id ................. [RUN]
+[2026-04-21T00:00:22.693+0000] {subprocess.py:93} INFO - [0m00:00:22  50 of 52 START test not_null_fct_employee_snapshot_employee_snapshot_key ....... [RUN]
+[2026-04-21T00:00:22.744+0000] {subprocess.py:93} INFO - [0m00:00:22  46 of 52 PASS not_null_fct_training_training_key ............................... [[32mPASS[0m in 1.29s]
+[2026-04-21T00:00:22.745+0000] {subprocess.py:93} INFO - [0m00:00:22  51 of 52 START test relationships_fct_employee_snapshot_employee_id__employee_id__ref_dim_employee_  [RUN]
+[2026-04-21T00:00:22.800+0000] {subprocess.py:93} INFO - [0m00:00:22  47 of 52 PASS unique_fct_training_training_key ................................. [[32mPASS[0m in 1.34s]
+[2026-04-21T00:00:22.801+0000] {subprocess.py:93} INFO - [0m00:00:22  52 of 52 START test unique_fct_employee_snapshot_employee_snapshot_key ......... [RUN]
+[2026-04-21T00:00:23.099+0000] {subprocess.py:93} INFO - [0m00:00:23  49 of 52 PASS not_null_fct_employee_snapshot_employee_id ....................... [[32mPASS[0m in 0.40s]
+[2026-04-21T00:00:23.197+0000] {subprocess.py:93} INFO - [0m00:00:23  50 of 52 PASS not_null_fct_employee_snapshot_employee_snapshot_key ............. [[32mPASS[0m in 0.50s]
+[2026-04-21T00:00:23.816+0000] {subprocess.py:93} INFO - [0m00:00:23  51 of 52 PASS relationships_fct_employee_snapshot_employee_id__employee_id__ref_dim_employee_  [[32mPASS[0m in 1.07s]
+[2026-04-21T00:00:23.819+0000] {subprocess.py:93} INFO - [0m00:00:23  52 of 52 PASS unique_fct_employee_snapshot_employee_snapshot_key ............... [[32mPASS[0m in 1.02s]
+[2026-04-21T00:00:25.201+0000] {subprocess.py:93} INFO - [0m00:00:25
+[2026-04-21T00:00:25.201+0000] {subprocess.py:93} INFO - [0m00:00:25  Finished running 1 table model, 39 data tests, 12 view models in 0 hours 0 minutes and 12.75 seconds (12.75s).
+[2026-04-21T00:00:25.235+0000] {subprocess.py:93} INFO - [0m00:00:25
+[2026-04-21T00:00:25.236+0000] {subprocess.py:93} INFO - [0m00:00:25  [32mCompleted successfully[0m
+[2026-04-21T00:00:25.236+0000] {subprocess.py:93} INFO - [0m00:00:25
+[2026-04-21T00:00:25.236+0000] {subprocess.py:93} INFO - [0m00:00:25  Done. PASS=52 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=52
+[2026-04-21T00:00:25.606+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-04-21T00:00:25.615+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-04-21T00:00:25.615+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=employee_data_pipeline_v2, task_id=run_dbt_transformations, run_id=scheduled__2026-04-20T00:00:00+00:00, execution_date=20260420T000000, start_date=20260421T000011, end_date=20260421T000025
+[2026-04-21T00:00:25.642+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-04-21T00:00:25.647+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-04-21T00:00:25.648+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

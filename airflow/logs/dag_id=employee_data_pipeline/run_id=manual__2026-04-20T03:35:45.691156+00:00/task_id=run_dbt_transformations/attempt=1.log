@@ -1,0 +1,46 @@
+[2026-04-20T03:35:46.702+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-04-20T03:35:46.710+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: employee_data_pipeline.run_dbt_transformations manual__2026-04-20T03:35:45.691156+00:00 [queued]>
+[2026-04-20T03:35:46.715+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: employee_data_pipeline.run_dbt_transformations manual__2026-04-20T03:35:45.691156+00:00 [queued]>
+[2026-04-20T03:35:46.717+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2026-04-20T03:35:46.722+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): run_dbt_transformations> on 2026-04-20 03:35:45.691156+00:00
+[2026-04-20T03:35:46.726+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=220) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-04-20T03:35:46.726+0000] {standard_task_runner.py:72} INFO - Started process 229 to run task
+[2026-04-20T03:35:46.726+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'employee_data_pipeline', 'run_dbt_transformations', 'manual__2026-04-20T03:35:45.691156+00:00', '--job-id', '39', '--raw', '--subdir', 'DAGS_FOLDER/employee_pipeline_dag.py', '--cfg-path', '/tmp/tmpxbsnw1w3']
+[2026-04-20T03:35:46.728+0000] {standard_task_runner.py:105} INFO - Job 39: Subtask run_dbt_transformations
+[2026-04-20T03:35:46.732+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-04-20T03:35:46.743+0000] {task_command.py:467} INFO - Running <TaskInstance: employee_data_pipeline.run_dbt_transformations manual__2026-04-20T03:35:45.691156+00:00 [running]> on host e01e90045a46
+[2026-04-20T03:35:46.766+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='employee_data_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_transformations' AIRFLOW_CTX_EXECUTION_DATE='2026-04-20T03:35:45.691156+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-20T03:35:45.691156+00:00'
+[2026-04-20T03:35:46.767+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-04-20T03:35:46.773+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-04-20T03:35:46.773+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        echo "--- Checking Current Directory ---"\n        pwd\n        echo "--- Checking for Project Files ---"\n        ls -la /opt/***/employee_data_transformation\n        echo "--- Checking for Profile Files ---"\n        ls -la /home/***/.dbt\n    ']
+[2026-04-20T03:35:46.777+0000] {subprocess.py:86} INFO - Output:
+[2026-04-20T03:35:46.777+0000] {subprocess.py:93} INFO - --- Checking Current Directory ---
+[2026-04-20T03:35:46.777+0000] {subprocess.py:93} INFO - /tmp/***tmpiri2j7mc
+[2026-04-20T03:35:46.778+0000] {subprocess.py:93} INFO - --- Checking for Project Files ---
+[2026-04-20T03:35:46.780+0000] {subprocess.py:93} INFO - total 16
+[2026-04-20T03:35:46.780+0000] {subprocess.py:93} INFO - drwxr-xr-x 14 *** root  448 Apr 19 23:36 .
+[2026-04-20T03:35:46.780+0000] {subprocess.py:93} INFO - drwxr-xr-x 26 *** root  832 Apr 20 03:05 ..
+[2026-04-20T03:35:46.781+0000] {subprocess.py:93} INFO - -rw-r--r--  1 *** root   29 Apr 19 23:04 .gitignore
+[2026-04-20T03:35:46.781+0000] {subprocess.py:93} INFO - -rw-r--r--  1 *** root    5 Apr 19 23:35 .python-version
+[2026-04-20T03:35:46.781+0000] {subprocess.py:93} INFO - drwxr-xr-x  8 *** root  256 Apr 19 23:36 .venv
+[2026-04-20T03:35:46.781+0000] {subprocess.py:93} INFO - -rw-r--r--  1 *** root  571 Apr 19 23:04 README.md
+[2026-04-20T03:35:46.781+0000] {subprocess.py:93} INFO - drwxr-xr-x  3 *** root   96 Apr 19 23:09 analyses
+[2026-04-20T03:35:46.781+0000] {subprocess.py:93} INFO - -rw-r--r--  1 *** root 1298 Apr 20 03:13 dbt_project.yml
+[2026-04-20T03:35:46.781+0000] {subprocess.py:93} INFO - drwxr-xr-x  3 *** root   96 Apr 19 23:16 logs
+[2026-04-20T03:35:46.781+0000] {subprocess.py:93} INFO - drwxr-xr-x  3 *** root   96 Apr 19 23:09 macros
+[2026-04-20T03:35:46.781+0000] {subprocess.py:93} INFO - drwxr-xr-x  5 *** root  160 Apr 19 23:49 models
+[2026-04-20T03:35:46.782+0000] {subprocess.py:93} INFO - drwxr-xr-x  3 *** root   96 Apr 19 23:09 seeds
+[2026-04-20T03:35:46.782+0000] {subprocess.py:93} INFO - drwxr-xr-x  3 *** root   96 Apr 19 23:09 snapshots
+[2026-04-20T03:35:46.782+0000] {subprocess.py:93} INFO - drwxr-xr-x  3 *** root   96 Apr 19 23:09 tests
+[2026-04-20T03:35:46.782+0000] {subprocess.py:93} INFO - --- Checking for Profile Files ---
+[2026-04-20T03:35:46.782+0000] {subprocess.py:93} INFO - total 16
+[2026-04-20T03:35:46.782+0000] {subprocess.py:93} INFO - drwxr-xr-x 4 *** root  128 Apr 18 00:43 .
+[2026-04-20T03:35:46.782+0000] {subprocess.py:93} INFO - drwxrwx--- 1 *** root 4096 Apr 20 03:34 ..
+[2026-04-20T03:35:46.782+0000] {subprocess.py:93} INFO - -rw-r--r-- 1 *** root   41 Apr 18 00:01 .user.yml
+[2026-04-20T03:35:46.782+0000] {subprocess.py:93} INFO - -rw-r--r-- 1 *** root  358 Apr 20 03:25 profiles.yml
+[2026-04-20T03:35:46.782+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-04-20T03:35:46.789+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-04-20T03:35:46.790+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=employee_data_pipeline, task_id=run_dbt_transformations, run_id=manual__2026-04-20T03:35:45.691156+00:00, execution_date=20260420T033545, start_date=20260420T033546, end_date=20260420T033546
+[2026-04-20T03:35:46.825+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-04-20T03:35:46.831+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-04-20T03:35:46.831+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

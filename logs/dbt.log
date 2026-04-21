@@ -1,0 +1,24 @@
+[0m22:44:17.039312 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa16a3c20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa1639d00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa18c7620>]}
+
+
+============================== 22:44:17.042167 | 2d61c70d-dfdc-4d7d-9537-de2be844da6f ==============================
+[0m22:44:17.042167 [info ] [MainThread]: Running with dbt=1.11.8
+[0m22:44:17.042438 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'fail_fast': 'False', 'cache_selected_only': 'False', 'debug': 'False', 'use_colors': 'True', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'quiet': 'False', 'write_json': 'True', 'invocation_command': 'dbt init employee_data_transformation', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'profiles_dir': '/home/airflow/.dbt', 'printer_width': '80', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'log_path': 'logs', 'version_check': 'True', 'target_path': 'None', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'introspect': 'True', 'no_print': 'None', 'static_parser': 'True'}
+[0m22:44:17.046559 [info ] [MainThread]: A project called employee_data_transformation already exists here.
+[0m22:44:17.047028 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 0.026752459, "process_in_blocks": "40", "process_kernel_time": 0.042883, "process_mem_max_rss": "104440", "process_out_blocks": "2", "process_user_time": 0.718057}
+[0m22:44:17.047261 [debug] [MainThread]: Command `dbt init` succeeded at 22:44:17.047217 after 0.03 seconds
+[0m22:44:17.047421 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa1639d00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa04cd820>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa146f380>]}
+[0m22:44:17.047585 [debug] [MainThread]: Flushing usage events
+[0m22:44:17.171990 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:44:27.647868 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb5aa08c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb3af2cf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb4d3bd70>]}
+
+
+============================== 22:44:27.650724 | 16db4a86-8a08-4251-81b8-00dc79a6aea5 ==============================
+[0m22:44:27.650724 [info ] [MainThread]: Running with dbt=1.11.8
+[0m22:44:27.651012 [debug] [MainThread]: running dbt with arguments {'no_print': 'None', 'target_path': 'None', 'static_parser': 'True', 'invocation_command': 'dbt init employee_data_transformation', 'empty': 'None', 'use_colors': 'True', 'fail_fast': 'False', 'version_check': 'True', 'profiles_dir': '/home/airflow/.dbt', 'partial_parse': 'True', 'log_format': 'default', 'use_experimental_parser': 'False', 'warn_error': 'None', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'log_path': 'logs', 'log_cache_events': 'False', 'cache_selected_only': 'False', 'debug': 'False', 'printer_width': '80', 'indirect_selection': 'eager'}
+[0m22:44:27.654399 [info ] [MainThread]: A project called employee_data_transformation already exists here.
+[0m22:44:27.654848 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 0.024614874, "process_in_blocks": "0", "process_kernel_time": 0.036016, "process_mem_max_rss": "104496", "process_out_blocks": "2", "process_user_time": 0.724334}
+[0m22:44:27.655114 [debug] [MainThread]: Command `dbt init` succeeded at 22:44:27.655068 after 0.02 seconds
+[0m22:44:27.655293 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb33e9c10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb37d82c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb2b42b70>]}
+[0m22:44:27.655482 [debug] [MainThread]: Flushing usage events
+[0m22:44:27.776215 [debug] [MainThread]: An error was encountered while trying to flush usage events

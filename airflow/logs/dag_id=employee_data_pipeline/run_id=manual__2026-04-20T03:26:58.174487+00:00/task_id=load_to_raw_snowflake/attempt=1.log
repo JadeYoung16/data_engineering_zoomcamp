@@ -1,0 +1,55 @@
+[2026-04-20T03:26:59.048+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-04-20T03:26:59.056+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: employee_data_pipeline.load_to_raw_snowflake manual__2026-04-20T03:26:58.174487+00:00 [queued]>
+[2026-04-20T03:26:59.058+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: employee_data_pipeline.load_to_raw_snowflake manual__2026-04-20T03:26:58.174487+00:00 [queued]>
+[2026-04-20T03:26:59.060+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2026-04-20T03:26:59.065+0000] {taskinstance.py:2888} INFO - Executing <Task(SnowflakeOperator): load_to_raw_snowflake> on 2026-04-20 03:26:58.174487+00:00
+[2026-04-20T03:26:59.068+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=375) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-04-20T03:26:59.068+0000] {standard_task_runner.py:72} INFO - Started process 383 to run task
+[2026-04-20T03:26:59.068+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'employee_data_pipeline', 'load_to_raw_snowflake', 'manual__2026-04-20T03:26:58.174487+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/employee_pipeline_dag.py', '--cfg-path', '/tmp/tmpq89_76wz']
+[2026-04-20T03:26:59.069+0000] {standard_task_runner.py:105} INFO - Job 26: Subtask load_to_raw_snowflake
+[2026-04-20T03:26:59.074+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-04-20T03:26:59.085+0000] {task_command.py:467} INFO - Running <TaskInstance: employee_data_pipeline.load_to_raw_snowflake manual__2026-04-20T03:26:58.174487+00:00 [running]> on host bb11660dbb07
+[2026-04-20T03:26:59.108+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='employee_data_pipeline' AIRFLOW_CTX_TASK_ID='load_to_raw_snowflake' AIRFLOW_CTX_EXECUTION_DATE='2026-04-20T03:26:58.174487+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-20T03:26:58.174487+00:00'
+[2026-04-20T03:26:59.109+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-04-20T03:26:59.113+0000] {sql.py:266} INFO - Executing: 
+USE WAREHOUSE EE_COMPUTE_WH;
+USE DATABASE EMPLOYEE_DATA_DB;
+USE SCHEMA STAGING;
+
+COPY INTO EMPLOYEE_DATA_DB.STAGING.raw_employee_data(raw_file_content)
+FROM (
+  SELECT $1 
+  FROM @EMPLOYEE_DATA_DB.STAGING.employee_raw_stage
+)
+FILE_FORMAT = (TYPE = PARQUET);
+[2026-04-20T03:26:59.117+0000] {base.py:84} INFO - Retrieving connection 'snowflake_conn'
+[2026-04-20T03:26:59.120+0000] {base.py:84} INFO - Retrieving connection 'snowflake_conn'
+[2026-04-20T03:26:59.142+0000] {connection.py:620} INFO - Snowflake Connector for Python Version: 4.4.0, Python Version: 3.12.6, Platform: Linux-6.12.76-linuxkit-aarch64-with-glibc2.36
+[2026-04-20T03:26:59.143+0000] {connection.py:1716} INFO - Connecting to GLOBAL Snowflake domain
+[2026-04-20T03:26:59.229+0000] {credentials.py:1147} INFO - Found credentials in environment variables.
+[2026-04-20T03:27:00.255+0000] {sql.py:509} INFO - Running statement: USE WAREHOUSE EE_COMPUTE_WH;, parameters: None
+[2026-04-20T03:27:00.435+0000] {sql.py:518} INFO - Rows affected: 1
+[2026-04-20T03:27:00.436+0000] {snowflake.py:422} INFO - Rows affected: 1
+[2026-04-20T03:27:00.436+0000] {snowflake.py:423} INFO - Snowflake query id: 01c3d3af-0005-23cc-000c-bde200040ce2
+[2026-04-20T03:27:00.436+0000] {sql.py:509} INFO - Running statement: USE DATABASE EMPLOYEE_DATA_DB;, parameters: None
+[2026-04-20T03:27:00.580+0000] {sql.py:518} INFO - Rows affected: 1
+[2026-04-20T03:27:00.580+0000] {snowflake.py:422} INFO - Rows affected: 1
+[2026-04-20T03:27:00.581+0000] {snowflake.py:423} INFO - Snowflake query id: 01c3d3af-0005-251d-000c-bde2000433e6
+[2026-04-20T03:27:00.581+0000] {sql.py:509} INFO - Running statement: USE SCHEMA STAGING;, parameters: None
+[2026-04-20T03:27:00.697+0000] {sql.py:518} INFO - Rows affected: 1
+[2026-04-20T03:27:00.698+0000] {snowflake.py:422} INFO - Rows affected: 1
+[2026-04-20T03:27:00.698+0000] {snowflake.py:423} INFO - Snowflake query id: 01c3d3af-0005-1a4d-000c-bde200042802
+[2026-04-20T03:27:00.699+0000] {sql.py:509} INFO - Running statement: COPY INTO EMPLOYEE_DATA_DB.STAGING.raw_employee_data(raw_file_content)
+FROM (
+  SELECT $1 
+  FROM @EMPLOYEE_DATA_DB.STAGING.employee_raw_stage
+)
+FILE_FORMAT = (TYPE = PARQUET);, parameters: None
+[2026-04-20T03:27:02.457+0000] {sql.py:518} INFO - Rows affected: 1
+[2026-04-20T03:27:02.458+0000] {snowflake.py:422} INFO - Rows affected: 1
+[2026-04-20T03:27:02.458+0000] {snowflake.py:423} INFO - Snowflake query id: 01c3d3af-0005-16d0-000c-bde20004647e
+[2026-04-20T03:27:02.818+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-04-20T03:27:02.818+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=employee_data_pipeline, task_id=load_to_raw_snowflake, run_id=manual__2026-04-20T03:26:58.174487+00:00, execution_date=20260420T032658, start_date=20260420T032659, end_date=20260420T032702
+[2026-04-20T03:27:02.840+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-04-20T03:27:02.846+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-04-20T03:27:02.846+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
