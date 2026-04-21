@@ -1,0 +1,205 @@
+[2026-04-20T23:23:48.184+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-04-20T23:23:48.190+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: employee_data_pipeline_v2.run_dbt_transformations manual__2026-04-20T23:23:42.808722+00:00 [queued]>
+[2026-04-20T23:23:48.196+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: employee_data_pipeline_v2.run_dbt_transformations manual__2026-04-20T23:23:42.808722+00:00 [queued]>
+[2026-04-20T23:23:48.196+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2026-04-20T23:23:48.201+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): run_dbt_transformations> on 2026-04-20 23:23:42.808722+00:00
+[2026-04-20T23:23:48.204+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=5519) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-04-20T23:23:48.204+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'employee_data_pipeline_v2', 'run_dbt_transformations', 'manual__2026-04-20T23:23:42.808722+00:00', '--job-id', '85', '--raw', '--subdir', 'DAGS_FOLDER/employee_pipeline_dag.py', '--cfg-path', '/tmp/tmpvw0rzbb3']
+[2026-04-20T23:23:48.206+0000] {standard_task_runner.py:105} INFO - Job 85: Subtask run_dbt_transformations
+[2026-04-20T23:23:48.205+0000] {standard_task_runner.py:72} INFO - Started process 5523 to run task
+[2026-04-20T23:23:48.212+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-04-20T23:23:48.225+0000] {task_command.py:467} INFO - Running <TaskInstance: employee_data_pipeline_v2.run_dbt_transformations manual__2026-04-20T23:23:42.808722+00:00 [running]> on host 78fd1d8cced9
+[2026-04-20T23:23:48.251+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='employee_data_pipeline_v2' AIRFLOW_CTX_TASK_ID='run_dbt_transformations' AIRFLOW_CTX_EXECUTION_DATE='2026-04-20T23:23:42.808722+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-20T23:23:42.808722+00:00'
+[2026-04-20T23:23:48.252+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-04-20T23:23:48.258+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-04-20T23:23:48.258+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/employee_data_transformation && /home/***/.local/bin/dbt build --profiles-dir /home/***/.dbt']
+[2026-04-20T23:23:48.262+0000] {subprocess.py:86} INFO - Output:
+[2026-04-20T23:23:49.052+0000] {subprocess.py:93} INFO - [0m23:23:49  Running with dbt=1.11.8
+[2026-04-20T23:23:49.378+0000] {subprocess.py:93} INFO - [0m23:23:49  Registered adapter: snowflake=1.11.4
+[2026-04-20T23:23:49.475+0000] {subprocess.py:93} INFO - [0m23:23:49  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-04-20T23:23:49.476+0000] {subprocess.py:93} INFO - There are 1 unused configuration paths:
+[2026-04-20T23:23:49.476+0000] {subprocess.py:93} INFO - - models.employee_data_transformation.example
+[2026-04-20T23:23:49.578+0000] {subprocess.py:93} INFO - [0m23:23:49  Found 13 models, 39 data tests, 4 sources, 639 macros
+[2026-04-20T23:23:49.580+0000] {subprocess.py:93} INFO - [0m23:23:49
+[2026-04-20T23:23:49.580+0000] {subprocess.py:93} INFO - [0m23:23:49  Concurrency: 4 threads (target='dev')
+[2026-04-20T23:23:49.580+0000] {subprocess.py:93} INFO - [0m23:23:49
+[2026-04-20T23:23:50.204+0000] {subprocess.py:93} INFO - [0m23:23:50  1 of 52 START sql table model STAGING.dim_date ................................. [RUN]
+[2026-04-20T23:23:50.205+0000] {subprocess.py:93} INFO - [0m23:23:50  2 of 52 START sql view model STAGING.stg_employee .............................. [RUN]
+[2026-04-20T23:23:50.205+0000] {subprocess.py:93} INFO - [0m23:23:50  3 of 52 START sql view model STAGING.stg_engagement ............................ [RUN]
+[2026-04-20T23:23:50.205+0000] {subprocess.py:93} INFO - [0m23:23:50  4 of 52 START sql view model STAGING.stg_recruitment ........................... [RUN]
+[2026-04-20T23:23:50.971+0000] {subprocess.py:93} INFO - [0m23:23:50  3 of 52 OK created sql view model STAGING.stg_engagement ....................... [[32mSUCCESS 1[0m in 0.76s]
+[2026-04-20T23:23:50.972+0000] {subprocess.py:93} INFO - [0m23:23:50  5 of 52 START sql view model STAGING.stg_training .............................. [RUN]
+[2026-04-20T23:23:51.004+0000] {subprocess.py:93} INFO - [0m23:23:51  4 of 52 OK created sql view model STAGING.stg_recruitment ...................... [[32mSUCCESS 1[0m in 0.80s]
+[2026-04-20T23:23:51.004+0000] {subprocess.py:93} INFO - [0m23:23:51  6 of 52 START test not_null_stg_engagement_employee_id ......................... [RUN]
+[2026-04-20T23:23:51.031+0000] {subprocess.py:93} INFO - [0m23:23:51  2 of 52 OK created sql view model STAGING.stg_employee ......................... [[32mSUCCESS 1[0m in 0.83s]
+[2026-04-20T23:23:51.032+0000] {subprocess.py:93} INFO - [0m23:23:51  7 of 52 START test not_null_stg_engagement_engagement_score .................... [RUN]
+[2026-04-20T23:23:51.353+0000] {subprocess.py:93} INFO - [0m23:23:51  5 of 52 OK created sql view model STAGING.stg_training ......................... [[32mSUCCESS 1[0m in 0.38s]
+[2026-04-20T23:23:51.355+0000] {subprocess.py:93} INFO - [0m23:23:51  8 of 52 START test not_null_stg_engagement_survey_date ......................... [RUN]
+[2026-04-20T23:23:51.364+0000] {subprocess.py:93} INFO - [0m23:23:51  7 of 52 PASS not_null_stg_engagement_engagement_score .......................... [[32mPASS[0m in 0.33s]
+[2026-04-20T23:23:51.366+0000] {subprocess.py:93} INFO - [0m23:23:51  6 of 52 PASS not_null_stg_engagement_employee_id ............................... [[32mPASS[0m in 0.36s]
+[2026-04-20T23:23:51.366+0000] {subprocess.py:93} INFO - [0m23:23:51  9 of 52 START test not_null_stg_recruitment_applicant_id ....................... [RUN]
+[2026-04-20T23:23:51.367+0000] {subprocess.py:93} INFO - [0m23:23:51  10 of 52 START test not_null_stg_recruitment_application_date .................. [RUN]
+[2026-04-20T23:23:51.413+0000] {subprocess.py:93} INFO - [0m23:23:51  1 of 52 OK created sql table model STAGING.dim_date ............................ [[32mSUCCESS 11322[0m in 1.21s]
+[2026-04-20T23:23:51.413+0000] {subprocess.py:93} INFO - [0m23:23:51  11 of 52 START test unique_stg_recruitment_applicant_id ........................ [RUN]
+[2026-04-20T23:23:51.610+0000] {subprocess.py:93} INFO - [0m23:23:51  8 of 52 PASS not_null_stg_engagement_survey_date ............................... [[32mPASS[0m in 0.25s]
+[2026-04-20T23:23:51.612+0000] {subprocess.py:93} INFO - [0m23:23:51  12 of 52 START test not_null_stg_employee_employee_id .......................... [RUN]
+[2026-04-20T23:23:51.726+0000] {subprocess.py:93} INFO - [0m23:23:51  11 of 52 FAIL 3000 unique_stg_recruitment_applicant_id ......................... [[31mFAIL 3000[0m in 0.31s]
+[2026-04-20T23:23:51.729+0000] {subprocess.py:93} INFO - [0m23:23:51  13 of 52 START test not_null_stg_employee_start_date ........................... [RUN]
+[2026-04-20T23:23:51.948+0000] {subprocess.py:93} INFO - [0m23:23:51  12 of 52 PASS not_null_stg_employee_employee_id ................................ [[32mPASS[0m in 0.34s]
+[2026-04-20T23:23:51.951+0000] {subprocess.py:93} INFO - [0m23:23:51  14 of 52 START test unique_stg_employee_employee_id ............................ [RUN]
+[2026-04-20T23:23:52.024+0000] {subprocess.py:93} INFO - [0m23:23:52  13 of 52 PASS not_null_stg_employee_start_date ................................. [[32mPASS[0m in 0.29s]
+[2026-04-20T23:23:52.026+0000] {subprocess.py:93} INFO - [0m23:23:52  15 of 52 START test not_null_stg_training_employee_id .......................... [RUN]
+[2026-04-20T23:23:52.263+0000] {subprocess.py:93} INFO - [0m23:23:52  9 of 52 PASS not_null_stg_recruitment_applicant_id ............................. [[32mPASS[0m in 0.90s]
+[2026-04-20T23:23:52.265+0000] {subprocess.py:93} INFO - [0m23:23:52  16 of 52 START test not_null_stg_training_training_date ........................ [RUN]
+[2026-04-20T23:23:52.265+0000] {subprocess.py:93} INFO - [0m23:23:52  10 of 52 PASS not_null_stg_recruitment_application_date ........................ [[32mPASS[0m in 0.90s]
+[2026-04-20T23:23:52.268+0000] {subprocess.py:93} INFO - [0m23:23:52  17 of 52 START test not_null_dim_date_date_key ................................. [RUN]
+[2026-04-20T23:23:52.330+0000] {subprocess.py:93} INFO - [0m23:23:52  15 of 52 PASS not_null_stg_training_employee_id ................................ [[32mPASS[0m in 0.30s]
+[2026-04-20T23:23:52.331+0000] {subprocess.py:93} INFO - [0m23:23:52  18 of 52 START test unique_dim_date_date_key ................................... [RUN]
+[2026-04-20T23:23:52.439+0000] {subprocess.py:93} INFO - [0m23:23:52  14 of 52 FAIL 3000 unique_stg_employee_employee_id ............................. [[31mFAIL 3000[0m in 0.49s]
+[2026-04-20T23:23:52.441+0000] {subprocess.py:93} INFO - [0m23:23:52  19 of 52 START sql view model STAGING.fct_engagement ........................... [RUN]
+[2026-04-20T23:23:52.461+0000] {subprocess.py:93} INFO - [0m23:23:52  17 of 52 PASS not_null_dim_date_date_key ....................................... [[32mPASS[0m in 0.19s]
+[2026-04-20T23:23:52.462+0000] {subprocess.py:93} INFO - [0m23:23:52  20 of 52 SKIP relation STAGING.fct_recruitment ................................. [[33mSKIP[0m]
+[2026-04-20T23:23:52.463+0000] {subprocess.py:93} INFO - [0m23:23:52  21 of 52 SKIP relation STAGING.dim_department .................................. [[33mSKIP[0m]
+[2026-04-20T23:23:52.463+0000] {subprocess.py:93} INFO - [0m23:23:52  22 of 52 SKIP relation STAGING.dim_employee .................................... [[33mSKIP[0m]
+[2026-04-20T23:23:52.464+0000] {subprocess.py:93} INFO - [0m23:23:52  23 of 52 SKIP relation STAGING.dim_job ......................................... [[33mSKIP[0m]
+[2026-04-20T23:23:52.465+0000] {subprocess.py:93} INFO - [0m23:23:52  24 of 52 SKIP test not_null_fct_recruitment_applicant_id ....................... [[33mSKIP[0m]
+[2026-04-20T23:23:52.466+0000] {subprocess.py:93} INFO - [0m23:23:52  25 of 52 SKIP test not_null_fct_recruitment_recruitment_key .................... [[33mSKIP[0m]
+[2026-04-20T23:23:52.466+0000] {subprocess.py:93} INFO - [0m23:23:52  26 of 52 SKIP test unique_fct_recruitment_recruitment_key ...................... [[33mSKIP[0m]
+[2026-04-20T23:23:52.467+0000] {subprocess.py:93} INFO - [0m23:23:52  27 of 52 SKIP test not_null_dim_department_department_key ...................... [[33mSKIP[0m]
+[2026-04-20T23:23:52.468+0000] {subprocess.py:93} INFO - [0m23:23:52  28 of 52 SKIP test not_null_dim_department_department_name ..................... [[33mSKIP[0m]
+[2026-04-20T23:23:52.469+0000] {subprocess.py:93} INFO - [0m23:23:52  29 of 52 SKIP test unique_dim_department_department_key ........................ [[33mSKIP[0m]
+[2026-04-20T23:23:52.469+0000] {subprocess.py:93} INFO - [0m23:23:52  30 of 52 SKIP test not_null_dim_employee_employee_id ........................... [[33mSKIP[0m]
+[2026-04-20T23:23:52.470+0000] {subprocess.py:93} INFO - [0m23:23:52  31 of 52 SKIP test not_null_dim_employee_is_active ............................. [[33mSKIP[0m]
+[2026-04-20T23:23:52.471+0000] {subprocess.py:93} INFO - [0m23:23:52  32 of 52 SKIP test unique_dim_employee_employee_id ............................. [[33mSKIP[0m]
+[2026-04-20T23:23:52.471+0000] {subprocess.py:93} INFO - [0m23:23:52  33 of 52 SKIP test not_null_dim_job_job_key .................................... [[33mSKIP[0m]
+[2026-04-20T23:23:52.472+0000] {subprocess.py:93} INFO - [0m23:23:52  34 of 52 SKIP test not_null_dim_job_job_title .................................. [[33mSKIP[0m]
+[2026-04-20T23:23:52.473+0000] {subprocess.py:93} INFO - [0m23:23:52  35 of 52 SKIP test unique_dim_job_job_key ...................................... [[33mSKIP[0m]
+[2026-04-20T23:23:52.474+0000] {subprocess.py:93} INFO - [0m23:23:52  36 of 52 SKIP relation STAGING.fct_employee_snapshot ........................... [[33mSKIP[0m]
+[2026-04-20T23:23:52.474+0000] {subprocess.py:93} INFO - [0m23:23:52  37 of 52 SKIP test accepted_values_fct_employee_snapshot_performance_tier__High__Medium__Low__Unknown  [[33mSKIP[0m]
+[2026-04-20T23:23:52.475+0000] {subprocess.py:93} INFO - [0m23:23:52  38 of 52 SKIP test not_null_fct_employee_snapshot_employee_id .................. [[33mSKIP[0m]
+[2026-04-20T23:23:52.476+0000] {subprocess.py:93} INFO - [0m23:23:52  39 of 52 SKIP test not_null_fct_employee_snapshot_employee_snapshot_key ........ [[33mSKIP[0m]
+[2026-04-20T23:23:52.476+0000] {subprocess.py:93} INFO - [0m23:23:52  40 of 52 SKIP test relationships_fct_employee_snapshot_employee_id__employee_id__ref_dim_employee_  [[33mSKIP[0m]
+[2026-04-20T23:23:52.477+0000] {subprocess.py:93} INFO - [0m23:23:52  41 of 52 SKIP test unique_fct_employee_snapshot_employee_snapshot_key .......... [[33mSKIP[0m]
+[2026-04-20T23:23:52.522+0000] {subprocess.py:93} INFO - [0m23:23:52  16 of 52 PASS not_null_stg_training_training_date .............................. [[32mPASS[0m in 0.26s]
+[2026-04-20T23:23:52.523+0000] {subprocess.py:93} INFO - [0m23:23:52  42 of 52 START sql view model STAGING.dim_training_program ..................... [RUN]
+[2026-04-20T23:23:52.556+0000] {subprocess.py:93} INFO - [0m23:23:52  18 of 52 PASS unique_dim_date_date_key ......................................... [[32mPASS[0m in 0.22s]
+[2026-04-20T23:23:52.740+0000] {subprocess.py:93} INFO - [0m23:23:52  19 of 52 OK created sql view model STAGING.fct_engagement ...................... [[32mSUCCESS 1[0m in 0.30s]
+[2026-04-20T23:23:52.743+0000] {subprocess.py:93} INFO - [0m23:23:52  43 of 52 START test not_null_fct_engagement_employee_id ........................ [RUN]
+[2026-04-20T23:23:52.743+0000] {subprocess.py:93} INFO - [0m23:23:52  44 of 52 START test not_null_fct_engagement_engagement_key ..................... [RUN]
+[2026-04-20T23:23:52.743+0000] {subprocess.py:93} INFO - [0m23:23:52  45 of 52 START test unique_fct_engagement_engagement_key ....................... [RUN]
+[2026-04-20T23:23:52.815+0000] {subprocess.py:93} INFO - [0m23:23:52  42 of 52 OK created sql view model STAGING.dim_training_program ................ [[32mSUCCESS 1[0m in 0.29s]
+[2026-04-20T23:23:52.816+0000] {subprocess.py:93} INFO - [0m23:23:52  46 of 52 START test not_null_dim_training_program_training_program_key ......... [RUN]
+[2026-04-20T23:23:52.942+0000] {subprocess.py:93} INFO - [0m23:23:52  43 of 52 PASS not_null_fct_engagement_employee_id .............................. [[32mPASS[0m in 0.20s]
+[2026-04-20T23:23:52.945+0000] {subprocess.py:93} INFO - [0m23:23:52  44 of 52 PASS not_null_fct_engagement_engagement_key ........................... [[32mPASS[0m in 0.20s]
+[2026-04-20T23:23:52.945+0000] {subprocess.py:93} INFO - [0m23:23:52  47 of 52 START test not_null_dim_training_program_training_program_name ........ [RUN]
+[2026-04-20T23:23:52.946+0000] {subprocess.py:93} INFO - [0m23:23:52  48 of 52 START test unique_dim_training_program_training_program_key ........... [RUN]
+[2026-04-20T23:23:53.013+0000] {subprocess.py:93} INFO - [0m23:23:53  46 of 52 PASS not_null_dim_training_program_training_program_key ............... [[32mPASS[0m in 0.20s]
+[2026-04-20T23:23:53.094+0000] {subprocess.py:93} INFO - [0m23:23:53  45 of 52 FAIL 3000 unique_fct_engagement_engagement_key ........................ [[31mFAIL 3000[0m in 0.35s]
+[2026-04-20T23:23:53.155+0000] {subprocess.py:93} INFO - [0m23:23:53  48 of 52 PASS unique_dim_training_program_training_program_key ................. [[32mPASS[0m in 0.21s]
+[2026-04-20T23:23:53.167+0000] {subprocess.py:93} INFO - [0m23:23:53  47 of 52 PASS not_null_dim_training_program_training_program_name .............. [[32mPASS[0m in 0.22s]
+[2026-04-20T23:23:53.168+0000] {subprocess.py:93} INFO - [0m23:23:53  49 of 52 START sql view model STAGING.fct_training ............................. [RUN]
+[2026-04-20T23:23:53.582+0000] {subprocess.py:93} INFO - [0m23:23:53  49 of 52 OK created sql view model STAGING.fct_training ........................ [[32mSUCCESS 1[0m in 0.41s]
+[2026-04-20T23:23:53.585+0000] {subprocess.py:93} INFO - [0m23:23:53  50 of 52 START test not_null_fct_training_employee_id .......................... [RUN]
+[2026-04-20T23:23:53.586+0000] {subprocess.py:93} INFO - [0m23:23:53  51 of 52 START test not_null_fct_training_training_key ......................... [RUN]
+[2026-04-20T23:23:53.586+0000] {subprocess.py:93} INFO - [0m23:23:53  52 of 52 START test unique_fct_training_training_key ........................... [RUN]
+[2026-04-20T23:23:53.995+0000] {subprocess.py:93} INFO - [0m23:23:53  51 of 52 PASS not_null_fct_training_training_key ............................... [[32mPASS[0m in 0.41s]
+[2026-04-20T23:23:53.997+0000] {subprocess.py:93} INFO - [0m23:23:53  50 of 52 PASS not_null_fct_training_employee_id ................................ [[32mPASS[0m in 0.41s]
+[2026-04-20T23:23:53.999+0000] {subprocess.py:93} INFO - [0m23:23:53  52 of 52 FAIL 3000 unique_fct_training_training_key ............................ [[31mFAIL 3000[0m in 0.41s]
+[2026-04-20T23:23:54.411+0000] {subprocess.py:93} INFO - [0m23:23:54
+[2026-04-20T23:23:54.412+0000] {subprocess.py:93} INFO - [0m23:23:54  Finished running 1 table model, 39 data tests, 12 view models in 0 hours 0 minutes and 4.83 seconds (4.83s).
+[2026-04-20T23:23:54.444+0000] {subprocess.py:93} INFO - [0m23:23:54
+[2026-04-20T23:23:54.444+0000] {subprocess.py:93} INFO - [0m23:23:54  [31mCompleted with 4 errors, 0 partial successes, and 0 warnings:[0m
+[2026-04-20T23:23:54.444+0000] {subprocess.py:93} INFO - [0m23:23:54
+[2026-04-20T23:23:54.445+0000] {subprocess.py:93} INFO - [0m23:23:54  [31mFailure in test unique_stg_recruitment_applicant_id (models/schema.yml)[0m
+[2026-04-20T23:23:54.445+0000] {subprocess.py:93} INFO - [0m23:23:54    Got 3000 results, configured to fail if != 0
+[2026-04-20T23:23:54.445+0000] {subprocess.py:93} INFO - [0m23:23:54
+[2026-04-20T23:23:54.445+0000] {subprocess.py:93} INFO - [0m23:23:54    compiled code at target/compiled/employee_data_transformation/models/schema.yml/unique_stg_recruitment_applicant_id.sql
+[2026-04-20T23:23:54.445+0000] {subprocess.py:93} INFO - [0m23:23:54
+[2026-04-20T23:23:54.446+0000] {subprocess.py:93} INFO - [0m23:23:54  [31mFailure in test unique_stg_employee_employee_id (models/schema.yml)[0m
+[2026-04-20T23:23:54.446+0000] {subprocess.py:93} INFO - [0m23:23:54    Got 3000 results, configured to fail if != 0
+[2026-04-20T23:23:54.446+0000] {subprocess.py:93} INFO - [0m23:23:54
+[2026-04-20T23:23:54.446+0000] {subprocess.py:93} INFO - [0m23:23:54    compiled code at target/compiled/employee_data_transformation/models/schema.yml/unique_stg_employee_employee_id.sql
+[2026-04-20T23:23:54.446+0000] {subprocess.py:93} INFO - [0m23:23:54
+[2026-04-20T23:23:54.447+0000] {subprocess.py:93} INFO - [0m23:23:54  [31mFailure in test unique_fct_engagement_engagement_key (models/schema.yml)[0m
+[2026-04-20T23:23:54.447+0000] {subprocess.py:93} INFO - [0m23:23:54    Got 3000 results, configured to fail if != 0
+[2026-04-20T23:23:54.447+0000] {subprocess.py:93} INFO - [0m23:23:54
+[2026-04-20T23:23:54.447+0000] {subprocess.py:93} INFO - [0m23:23:54    compiled code at target/compiled/employee_data_transformation/models/schema.yml/unique_fct_engagement_engagement_key.sql
+[2026-04-20T23:23:54.447+0000] {subprocess.py:93} INFO - [0m23:23:54
+[2026-04-20T23:23:54.447+0000] {subprocess.py:93} INFO - [0m23:23:54  [31mFailure in test unique_fct_training_training_key (models/schema.yml)[0m
+[2026-04-20T23:23:54.448+0000] {subprocess.py:93} INFO - [0m23:23:54    Got 3000 results, configured to fail if != 0
+[2026-04-20T23:23:54.448+0000] {subprocess.py:93} INFO - [0m23:23:54
+[2026-04-20T23:23:54.448+0000] {subprocess.py:93} INFO - [0m23:23:54    compiled code at target/compiled/employee_data_transformation/models/schema.yml/unique_fct_training_training_key.sql
+[2026-04-20T23:23:54.448+0000] {subprocess.py:93} INFO - [0m23:23:54
+[2026-04-20T23:23:54.448+0000] {subprocess.py:93} INFO - [0m23:23:54  Done. PASS=26 WARN=0 ERROR=4 SKIP=22 NO-OP=0 TOTAL=52
+[2026-04-20T23:23:55.146+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-04-20T23:23:55.151+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-04-20T23:23:55.152+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=employee_data_pipeline_v2, task_id=run_dbt_transformations, run_id=manual__2026-04-20T23:23:42.808722+00:00, execution_date=20260420T232342, start_date=20260420T232348, end_date=20260420T232355
+[2026-04-20T23:23:55.157+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-04-20T23:23:55.158+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 85 for task run_dbt_transformations (Bash command failed. The command returned a non-zero exit code 1.; 5523)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-04-20T23:23:55.191+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2026-04-20T23:23:55.197+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-04-20T23:23:55.198+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
