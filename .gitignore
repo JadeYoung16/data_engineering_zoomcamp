@@ -1,0 +1,39 @@
+# Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+terraform.tfstate.*.backup
+
+# Mac
+.DS_Store
+**/.DS_Store
+
+# Airflow
+airflow.cfg
+airflow-webserver.pid
+webserver_config.py
+
+# Sensitive
+*.p8
+*.pub
+*.pem
+.env
+
+# dbt
+target/
+logs/
+dbt_packages/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Tableau temp files
+*.twbr
+
+.env
+snowflake_key.p8
+snowflake_key.pub
+*.p8
+*.pub
+logs/
+employee_data_transformation/target/
