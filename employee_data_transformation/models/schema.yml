@@ -1,0 +1,125 @@
+version: 2
+
+models:
+  # ─────────────────────────────────────────────
+  # STAGING
+  # ─────────────────────────────────────────────
+  - name: stg_employee
+    description: Cleaned employee info from RAW_EMPLOYEE_INFO
+    columns:
+      - name: employee_id
+        tests: [not_null, unique]
+      - name: start_date
+        tests: [not_null]
+      
+
+  - name: stg_engagement
+    description: Cleaned engagement survey data
+    columns:
+      - name: employee_id
+        tests: [not_null]
+      - name: survey_date
+        tests: [not_null]
+      - name: engagement_score
+        tests: [not_null]
+
+  - name: stg_recruitment
+    description: Cleaned recruitment/applicant data
+    columns:
+      - name: applicant_id
+        tests: [not_null, unique]
+      - name: application_date
+        tests: [not_null]
+
+  - name: stg_training
+    description: Cleaned training and development data
+    columns:
+      - name: employee_id
+        tests: [not_null]
+      - name: training_date
+        tests: [not_null]
+
+  # ─────────────────────────────────────────────
+  # DIMENSIONS
+  # ─────────────────────────────────────────────
+  - name: dim_employee
+    description: Employee dimension — one row per employee
+    columns:
+      - name: employee_id
+        tests: [not_null, unique]
+      - name: is_active
+        tests: [not_null]
+
+  - name: dim_department
+    description: Unique department, division, business unit combos
+    columns:
+      - name: department_key
+        tests: [not_null, unique]
+      - name: department_name
+        tests: [not_null]
+
+  - name: dim_job
+    description: Unique job title and function combos
+    columns:
+      - name: job_key
+        tests: [not_null, unique]
+      - name: job_title
+        tests: [not_null]
+
+  - name: dim_training_program
+    description: Unique training programs
+    columns:
+      - name: training_program_key
+        tests: [not_null, unique]
+      - name: training_program_name
+        tests: [not_null]
+
+  - name: dim_date
+    description: Date spine from 2000 to 2030
+    columns:
+      - name: date_key
+        tests: [not_null, unique]
+
+  # ─────────────────────────────────────────────
+  # FACTS
+  # ─────────────────────────────────────────────
+  - name: fct_employee_snapshot
+    description: One row per employee with performance and tenure metrics
+    columns:
+      - name: employee_snapshot_key
+        tests: [not_null, unique]
+      - name: employee_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_employee')
+              field: employee_id
+      - name: performance_tier
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['High', 'Medium', 'Low', 'Unknown']
+
+  - name: fct_engagement
+    description: One row per employee per survey date
+    columns:
+      - name: engagement_key
+        tests: [not_null, unique]
+      - name: employee_id
+        tests: [not_null]
+
+  - name: fct_training
+    description: One row per employee per training session
+    columns:
+      - name: training_key
+        tests: [not_null, unique]
+      - name: employee_id
+        tests: [not_null]
+
+  - name: fct_recruitment
+    description: One row per applicant
+    columns:
+      - name: recruitment_key
+        tests: [not_null, unique]
+      - name: applicant_id
+        tests: [not_null]

@@ -1,0 +1,11 @@
+version: 2
+ 
+sources:
+  - name: raw
+    database: EMPLOYEE_DATA_DB
+    schema: RAW
+    tables:
+      - name: RAW_EMPLOYEE_INFO
+      - name: RAW_ENGAGEMENT
+      - name: RAW_RECRUITMENT
+      - name: RAW_TRAINING
